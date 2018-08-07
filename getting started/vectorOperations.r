@@ -47,3 +47,19 @@ is.na(z)
 is.null(z)
 d <- (NULL)
 is.null(d)
+
+x <- 1:10
+mean(x)
+sum(x)
+head(x)
+max(x)
+min(x)
+summary(x)
+plot(x)
+
+mean(x=x, trim=.1)
+mean(x, .1)
+mean(x, na.rm = TRUE)
+x[c(2,6)] <- NA
+mean(x)
+mean(x, na.rm = TRUE)
