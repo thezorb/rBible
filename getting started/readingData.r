@@ -50,12 +50,21 @@ head(tips)
 data()
 
 #XML
-#This may not work with VPN
 library(XML)
-#library(RCurl)
-theURL <-"http://www.jaredlander.com/2012/02/another-kind-of-super-bowl-pool/"
-#theURL <- getURL(theURL)
-bowlGame <- readHTMLTable(theURL, which=1, header=FALSE, stringsAsFactors=FALSE)
+library(httr)
+theURL <- GET("http://www.jaredlander.com/2012/02/another-kind-of-super-bowl-pool/")
+bowlGame <- readHTMLTable(rawToChar(theURL$content), which=1, header=FALSE, stringsAsFactors=FALSE)
 bowlGame
+
+#the rest doesn't work that great
+address <- "http://www.menupages.com/restaurants/fiores-pizza/menu"
+thePage <- readLines(address)
+head(thePage)
+
+pageRender <- htmlParse(thePage)
+pageRender
+
+address <- xpathApply(pageRender, "//li[@class='address adr']/span[@class='addr street-address']",fun-xmlValue)[[1]]
+
 
 
