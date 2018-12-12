@@ -51,6 +51,7 @@ use.switch(2)
 use.switch(3)
 use.switch(5)
 use.switch(6)
+is.null(use.switch(6))
 
 #run checks on entire vectors
 ifelse(1 == 1, "Yes", "No")
@@ -85,6 +86,7 @@ if(x==1 || y==3) #with two |s, it'll only check the first statement
   print("Hello")
 }
 
+#nested ifelse
 ifelse(b==1, "Hi", ifelse(b==0, "Hello","Goodybe"))
 
 #for loops
