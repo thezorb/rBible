@@ -1,0 +1,53 @@
+\documentclass{article}
+%this is a comment
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.png,.jpg}
+
+\newcommand{\dataframe}{\texttt{data.frame}}
+
+\author{Zorbey Canturk}
+\title{A Simple Article}
+\date{January 3, 2019}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Getting Started}
+\label{sec:GettingStarted}
+This is the first section of our article. We will only talk about \dataframe{}s.
+
+A new paragraph comes after a blank line.
+
+\section{More Information}
+\label{sec:MoreInfo}
+Here is another section. In Section~\ref{sec:GettingStarted} we learned about \dataframe{}s.
+
+\subsection{First subsection}
+\label{FirstSub}
+Content for a subsection.
+
+\subsection{Second Subsections}
+\label{SecondSub}
+More contents that is nested in Section~\ref{sec:MoreInfo}
+
+\section{Diamonds}
+\label{sec:Diamonds}
+<<diamonds-model>>=
+#load ggplot
+require(ggplot2)
+data(diamonds)
+head(diamonds)
+
+#fit model
+mod1 <- lm(price ~ carat + cut, data=diamonds)
+summary(mod1)
+@
+
+The diamonds are plotted in Figure~\ref{fig:diamonds-plot}
+
+<<diamonds-plot, fig.cap="Scatterplot of diamonds", out.width='.95\\linewidth', dev='png'>>=
+ggplot(diamonds, aes(x=carat, y=price, color=color)) + geom_point()
+@
+\end{document}
