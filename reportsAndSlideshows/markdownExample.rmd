@@ -1,0 +1,45 @@
+---
+output: html_document
+---
+A Simple Site
+===========================
+
+# Header 1
+
+## Header 2
+
+_this will be italics_
+
+__this will be bold__
+
+* Item 1
+* Second Item
+* Last Item
+
+[My Website](http://www.jaredlander.com)
+
+```{r addition}
+1 + 1
+```
+
+```{r more-complex}
+require(ggplot2)
+data(diamonds)
+head(diamonds)
+```
+
+```{r a-simple-plot, dev ='png'}
+ggplot(diamonds, aes(x=carat, y=price, color=color))+geom_point()
+```
+
+#Writing Equations
+$$
+    \hat{\beta} = (X^TX)^{-1}X^TY
+$$
+$$
+    \bar{x} = \sum_{i=1}^n \frac{x_i}{n}
+$$
+
+$$
+    f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} e^\frac{-x(-\mu)^2}{2\sigma^2}
+$$
