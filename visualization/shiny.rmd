@@ -1,0 +1,67 @@
+---
+output: html_document
+runtime: shiny
+---
+```
+title: "Shiny Document"
+author: "Zorbey Canturk"
+date: "January 4, 2019"
+output: html_document
+runtime: shiny
+```
+
+```{r, echo=FALSE}
+library(knitr)
+library(ggplot2)
+library(shiny)
+opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
+
+data(diamonds)
+```
+
+# Inputs {#Inputs}
+
+```{r input-panel-simple}
+inputPanel(checkboxGroupInput('checkGroup', label='Checkbox Group',
+                              choices=list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                              selected=1))
+```
+
+```{r input-panel-multiple}
+inputPanel(
+  checkboxGroupInput('checkGroup', label='Checkbox Group',
+                     choices=list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                     selected=1),
+  radioButtons("radio", label="Radio Button",
+               choices=list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+               selected=1),
+  checkboxInput('checkbox', label='Choice A', value=TRUE)
+)
+```
+
+## Diamonds Input {#DiamondsInput}
+
+```{r diamonds-input}
+inputPanel(
+  checkboxGroupInput(inputId='checkGroup_cut', 
+                     label='Diamond Cut',
+                     choices=list('Ideal', 'Premium', 'Very Good', 'Fair'),
+                     selected='Ideal'),
+  checkboxInput('checkbox_log_y', label='Plot on log scale', value=FALSE)
+)
+```
+
+```{r check-inputs}
+renderPrint(input$checkGroup_cut)
+renderPrint(input$checkbox_log_y)
+```
+
+#Interactive Plot {#interactivePlot}
+```{r interactive-plot}
+renderPlot({
+  ggplot(diamonds[diamonds$cut %in% input$checkGroup_cut, ], aes(x=carat, y=price, color=cut)) + 
+    geom_point()
+})
+```
+
+
