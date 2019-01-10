@@ -128,3 +128,4 @@ cor(theMat, use="all.obs")
 cor(theMat, use="complete.obs")
 theMat
 cor(theMat, use="na.or.complete")
+
