@@ -129,3 +129,14 @@ cor(theMat, use="complete.obs")
 theMat
 cor(theMat, use="na.or.complete")
 
+#bonus
+max(x,na.rm=TRUE) #Find the maximum value in the vector x, exclude missing values 
+min(x, na.rm=TRUE) 
+mean(x,na.rm=TRUE) 
+median(x,na.rm=TRUE) 
+sum(x, na.rm=TRUE) 
+var(x,na.rm=TRUE) #produces the variance covariance matrix 
+sd(x,na.rm=TRUE) #standard deviation 
+mad(x,na.rm=TRUE) #(median absolute deviation) 
+fivenum(x,na.rm=TRUE) #Tukey five numbers min, lower hinge, median, upperhinge, max 
+table(x) #frequency counts of entries, ideally the entries are factors (although it works with integers or even reals) 
