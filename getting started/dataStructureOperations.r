@@ -114,3 +114,82 @@ C
 A
 t(A)
 A%*%C
+
+
+
+# matrix
+first.matrix <- matrix(1:12, ncol=4)
+first.matrix
+second.matrix <- matrix(1:12, ncol=4, byrow=TRUE)
+second.matrix
+str(first.matrix)
+str(second.matrix)
+dim(first.matrix)
+length(first.matrix)
+# +vectors
+vector1 <- c(12,4,5,6,9,3)
+vector1
+vector2 <- c(5,4,2,4,12,9)
+vector2
+matrix.one <- rbind(vector1,vector2) # each vector becomes a row in the matrix
+matrix.one
+cbind(1:3,4:6)
+cbind(1:3,4:6,matrix(7:12,ncol=2)) # +matrix 
+# indices
+first.matrix
+first.matrix[1:2,2:3]
+first.matrix[2:3,]
+first.matrix[-2,-3]
+#nr <- nrow(first.matrix) # num rows
+#id <- nr * 2 + 2   # calculate the position of entry we want to exclude
+#first.matrix[-id]   # note the 8 is missing from the results
+#
+# replacing values
+first.matrix.orig <- first.matrix 
+first.matrix
+first.matrix[3,2] <- 4
+first.matrix
+first.matrix[2,] <- c(1,3)
+first.matrix
+first.matrix[1:2,3:4] <- c(8,4,2,1)
+first.matrix
+first.matrix <- first.matrix.orig
+first.matrix
+first.matrix + 4
+first.matrix <- matrix(1:12, ncol=4)
+first.matrix
+second.matrix <- matrix(1:3, nrow=3, ncol=4)
+second.matrix
+first.matrix + second.matrix
+# using this code: first.matrix <- matrix(1:12,ncol=4) \n first.matrix + 1:3 yields same result as above
+first.matrix <- matrix(1:12, ncol=4)
+first.matrix
+first.matrix + 1:3
+#
+# Dataframes - stop here for next week...
+# 
+baskets.of.granny <- c(12,4,5,6,9,3)
+baskets.of.gerry <- c(5,4,2,4,12,9)
+baskets.of.team <- rbind(baskets.of.granny,baskets.of.gerry)
+baskets.of.team
+baskets.df <- as.data.frame(t(baskets.of.team))
+baskets.df
+str(baskets.df)
+nrow(baskets.df)
+length(baskets.df)
+#
+# combining data
+employee <- c("John Doe", "Jim Doe", "Joe Doe")
+salary <- c(21000,23500,150000)
+startdate <- as.Date(c("2010-11-2","2008-3-25","2002-5-11"))
+
+employee.data <- data.frame(employee,salary,startdate)
+str(employee.data)
+names(employee.data)
+names(employee.data)[3] <- "first day"
+employee.data
+rownames(employee.data) <- c("Sous Chef","Chef","Executive Chef") 
+employee.data
+# dataset info
+#
+library(help="datasets")
