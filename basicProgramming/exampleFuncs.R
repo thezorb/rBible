@@ -95,3 +95,4 @@ priceCalculator6 <- function(hours, pph = 40, client) {
   round(tot.price)
 }
 
+#
