@@ -38,6 +38,8 @@ q2 <- c(q, "Hockey", "Lacrosse", "Hockey", "Water Polo", "Lacrosse")
 q2
 q2Factor <- factor(q2)
 q2Factor
+#Factor sorting
+sizes <- factor(sizes, levels = c("small", "medium", "large"))
 
 z <- c(1,2,NA,9,3,NA)
 is.na(z)
